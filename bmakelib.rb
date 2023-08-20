@@ -17,6 +17,7 @@ class Bmakelib < Formula
 
   def install
     ENV["PATH"] = "#{prefix}/opt/make/libexec/gnubin:" + ENV["PATH"]
+    system "echo $PATH"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
