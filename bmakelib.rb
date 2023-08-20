@@ -20,7 +20,7 @@ class Bmakelib < Formula
   end
 
   test do
-    mktemp("bmakelib") {
+    mktemp("bmakelib") do
       File.write(
         "Makefile",
         [
@@ -31,6 +31,6 @@ class Bmakelib < Formula
         ].join("\n"),
       )
       assert_equal "0.4.1", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
-    }
+    end
   end
 end
