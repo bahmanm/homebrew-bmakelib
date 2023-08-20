@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 class Bmakelib < Formula
-  desc "bmakelib is a minimalist standard library for writing Makefiles"
+  desc "It is a minimalist standard library for writing Makefiles"
   homepage "https://github.com/bahmanm/bmakelib"
   url "https://github.com/bahmanm/bmakelib/releases/download/v0.4.1/bmakelib-0.4.1.tar.gz"
   sha256 "d60a6b0674941bee801571677fa3d6e09f9d85835ec9f790b5f040feed0eada6"
@@ -22,10 +23,13 @@ class Bmakelib < Formula
     begin
       File.write(
         "Makefile",
-        ["include bmakelib/bmakelib.mk",
-         "PHONY:echo-version",
-         "echo-version:",
-         "\t@echo $(bmakelib.VERSION)"].join("\n"))
+        [
+          "include bmakelib/bmakelib.mk",
+          "PHONY:echo-version",
+          "echo-version:",
+          "\t@echo $(bmakelib.VERSION)"
+        ].join("\n")
+      )
       assert_equal "0.4.1", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
     end
   end
