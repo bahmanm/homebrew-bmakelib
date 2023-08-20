@@ -16,8 +16,7 @@ class Bmakelib < Formula
   depends_on "perl"
 
   def install
-    system "PATH=$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH",
-           "make", "PREFIX=#{prefix}", "install"
+    system "PATH=#{prefix}/opt/make/libexec/gnubin:$PATH make PREFIX=#{prefix} install"
   end
 
   test do
