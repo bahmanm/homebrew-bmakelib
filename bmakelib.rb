@@ -33,7 +33,7 @@ class Bmakelib < Formula
         ].join("\n"),
       )
       ENV["PATH"] = "#{prefix}/opt/make/libexec/gnubin:" + ENV["PATH"]
-      assert_equal "0.4.1", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
+      assert_equal "0.4.2", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
     end
   end
 end
