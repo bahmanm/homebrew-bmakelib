@@ -1,11 +1,11 @@
-# Bahmanm Bmakelib
+# bmakelib Hombrew Tap
 
-## How do I install these formulae?
+# How do I install these formulae?
 
 `brew install bahmanm/bmakelib/<formula>`
 
 Or `brew tap bahmanm/bmakelib` and then `brew install <formula>`.
 
-## Documentation
+# Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
