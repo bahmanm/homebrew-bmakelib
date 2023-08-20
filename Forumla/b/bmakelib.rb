@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Bmakelib < Formula
   desc "It is a minimalist standard library for writing Makefiles"
   homepage "https://github.com/bahmanm/bmakelib"
@@ -27,8 +28,8 @@ class Bmakelib < Formula
           "include bmakelib/bmakelib.mk",
           "PHONY:echo-version",
           "echo-version:",
-          "\t@echo $(bmakelib.VERSION)"
-        ].join("\n")
+          "\t@echo $(bmakelib.VERSION)",
+        ].join("\n"),
       )
       assert_equal "0.4.1", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
     end
