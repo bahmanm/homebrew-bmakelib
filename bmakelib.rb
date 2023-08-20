@@ -16,7 +16,7 @@ class Bmakelib < Formula
   depends_on "perl"
 
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    system "gmake", "PREFIX=#{prefix}", "install"
   end
 
   test do
