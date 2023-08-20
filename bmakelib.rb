@@ -16,7 +16,8 @@ class Bmakelib < Formula
   depends_on "perl"
 
   def install
-    system "export PATH=#{prefix}/opt/make/libexec/gnubin:$PATH; make PREFIX=#{prefix} install"
+    ENV["PATH"] = "#{prefix}/opt/make/libexec/gnubin:" + ENV["PATH"]
+    system "make PREFIX=#{prefix} install"
   end
 
   test do
@@ -30,6 +31,7 @@ class Bmakelib < Formula
           "\t@echo $(bmakelib.VERSION)",
         ].join("\n"),
       )
+      ENV["PATH"] = "#{prefix}/opt/make/libexec/gnubin:" + ENV["PATH"]
       assert_equal "0.4.1", shell_output("make -I ${HOMEBREW_PREFIX}/include echo-version").strip
     end
   end
