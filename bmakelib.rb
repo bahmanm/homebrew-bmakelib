@@ -18,7 +18,7 @@ class Bmakelib < Formula
   def install
     ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
     system "echo $PATH"
-    system "make", "PREFIX=#{ENV["HOMEBREW_PREFIX"]}", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
@@ -26,14 +26,14 @@ class Bmakelib < Formula
       File.write(
         "Makefile",
         [
-          "include bmakelib/bmakelib.mk",
+          "-include bmakelib/bmakelib.mk",
           "PHONY:echo-version",
           "echo-version:",
-          "\t@echo $(bmakelib.VERSION)",
+          "\t@echo $(bmakelib.VERSION), $(MAKE_VERSION)",
         ].join("\n"),
       )
       ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
-      assert_equal "0.4.4", shell_output("make -I #{ENV["HOMEBREW_PREFIX"]}/include echo-version").strip
+      assert_equal "0.4.4, 4.4.1", shell_output("make -I #{include} -I #{prefix} echo-version").strip
     end
   end
 end
