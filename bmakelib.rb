@@ -29,7 +29,7 @@ class Bmakelib < Formula
           "-include bmakelib/bmakelib.mk",
           "PHONY:echo-version",
           "echo-version:",
-          "\t@ls -alh #{prefix}; ls -alh #{include}; echo $(bmakelib.VERSION),",
+          "\t@echo $(bmakelib.VERSION),",
         ].join("\n"),
       )
       ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
