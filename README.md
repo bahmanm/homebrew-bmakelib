@@ -1,4 +1,4 @@
-# bmakelib Hombrew Tap
+# bmakelib Hombrew Tap [![brew test-bot](https://github.com/bahmanm/homebrew-bmakelib/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/bahmanm/homebrew-bmakelib/actions/workflows/tests.yml)
 
 # How do I install these formulae?
 
