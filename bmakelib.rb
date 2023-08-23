@@ -18,7 +18,7 @@ class Bmakelib < Formula
   def install
     ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
     system "echo $PATH"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "PREFIX=#{ENV["HOMEBREW_PREFIX"]}", "install"
   end
 
   test do
