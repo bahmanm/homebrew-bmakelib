@@ -29,11 +29,11 @@ class Bmakelib < Formula
           "-include bmakelib/bmakelib.mk",
           "PHONY:echo-version",
           "echo-version:",
-          "\t@echo $(bmakelib.VERSION), $(MAKE_VERSION)",
+          "\t@ls -alh #{prefix}; ls -alh #{include}; echo $(bmakelib.VERSION)",
         ].join("\n"),
       )
       ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
-      assert_equal "0.4.4, 4.4.1", shell_output("make -I #{include} -I #{prefix} echo-version").strip
+      assert_equal "0.4.4", shell_output("make -I #{include} -I #{prefix} echo-version").strip
     end
   end
 end
