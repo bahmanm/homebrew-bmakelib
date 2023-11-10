@@ -3,8 +3,8 @@
 class Bmakelib < Formula
   desc "It is a minimalist standard library for writing Makefiles"
   homepage "https://github.com/bahmanm/bmakelib"
-  url "https://github.com/bahmanm/bmakelib/releases/download/v0.4.5/bmakelib-0.4.5.tar.gz"
-  sha256 "0e7cdc755580f2a7756a0434b37952d9cc298965dfb050bffd56e8064f6426be"
+  url "https://github.com/bahmanm/bmakelib/releases/download/v0.4.6/bmakelib-0.4.6.tar.gz"
+  sha256 "618166d00125ad78440e0242a4e897b217045c4023e1053f403e568847c23666"
   license "Apache-2.0"
 
   depends_on "bash" => [:build, :test]
@@ -33,7 +33,7 @@ class Bmakelib < Formula
         ].join("\n"),
       )
       ENV["PATH"] = "#{ENV["HOMEBREW_PREFIX"]}/opt/make/libexec/gnubin:#{ENV["PATH"]}"
-      assert_equal "0.4.5", shell_output("make -I #{include} echo-version").strip
+      assert_equal "0.4.6", shell_output("make -I #{include} echo-version").strip
     end
   end
 end
